@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Trip | Temen Jalan Bandung</title>
+<meta name="description" content="Private trips in Bandung with local female guides and drivers. Custom itinerary, comfortable vehicle, and photo & video assistance."/>
+<link rel="canonical" href="https://temenjalanbandung.my.id/booking"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Temen Jalan Bandung"/>
+<meta property="og:title" content="Booking Trip | Temen Jalan Bandung"/>
+<meta property="og:description" content="Private trips in Bandung with local female guides and drivers. Custom itinerary, comfortable vehicle, and photo & video assistance."/>
+<meta property="og:url" content="https://temenjalanbandung.my.id/booking"/>
+<meta property="og:image" content="https://temenjalanbandung.my.id/images/about-us.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+                "background": "#f6faf7",
+                "surface": "#ffffff",
+                "surface-dim": "#eef5f0",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-low": "#f1f7f2",
+                "surface-container": "#e9f2eb",
+                "surface-container-high": "#ddebe0",
+                "surface-container-highest": "#cfe0d4",
+                "surface-variant": "#dfe9e1",
+                "on-background": "#16261c",
+                "on-surface": "#16261c",
+                "on-surface-variant": "#526056",
+                "primary": "#2f7d55",
+                "on-primary": "#ffffff",
+                "primary-container": "#d8ead9",
+                "on-primary-container": "#1c5c3c",
+                "secondary": "#2f9d63",
+                "secondary-fixed-dim": "#2f9d63",
+                "on-secondary": "#ffffff",
+                "error": "#c0344a",
+                "outline": "#8ea297",
+                "outline-variant": "#d7e3da"
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: { "margin-mobile": "20px", "margin-desktop": "64px", "container-max": "1280px", "gutter": "24px" },
+            fontFamily: {
+                "headline-md": ["Playfair Display"], "headline-lg": ["Playfair Display"],
+                "display-lg": ["Playfair Display"], "display-lg-mobile": ["Playfair Display"],
+                "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "label-sm": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body { -webkit-font-smoothing: antialiased; }
+    .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(47, 125, 85, 0.15); }
+    .glass-card.active-option { border-color: #2f9d63; background: rgba(47, 157, 99, 0.08); box-shadow: 0 0 20px rgba(47, 157, 99, 0.15); }
+    .gold-gradient { background: linear-gradient(135deg, #34b876 0%, #1c5c3c 100%); }
+    .step-panel { display: none; }
+    .step-panel.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    input:focus, select:focus { outline: none; border-color: #2f9d63 !important; box-shadow: 0 0 0 2px rgba(47,157,99,0.2); }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-secondary/20 px-margin-mobile md:px-margin-desktop py-4">
+<div class="max-w-container-max mx-auto flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="font-headline-md text-xl text-secondary">Temen Jalan Bandung</span>
+<span class="hidden sm:inline text-on-surface-variant text-sm">| Booking</span>
+</div>
+<a class="text-on-surface-variant hover:text-secondary text-sm flex items-center gap-1" href="index.html">
+<span class="material-symbols-outlined text-base">arrow_back</span> Kembali ke halaman utama
+</a>
+</div>
+</nav>
+
+<main class="pt-28 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+
+<header class="text-center max-w-2xl mx-auto mb-12">
+<h1 class="font-display-lg-mobile md:font-display-lg text-3xl md:text-5xl text-secondary mb-3">Rencanakan Perjalananmu</h1>
+<p class="text-on-surface-variant">Pilih durasi, destinasi, dan detail perjalanan. Harga terhitung otomatis — konfirmasi akhir tetap lewat WhatsApp, tanpa pembayaran di sini.</p>
+</header>
+
+<!-- Progress -->
+<div class="max-w-2xl mx-auto mb-10">
+<div class="flex justify-between text-[10px] md:text-xs uppercase tracking-widest text-on-surface-variant mb-2 px-1">
+<span data-step-label="1"><span class="sm:hidden">1</span><span class="hidden sm:inline">Durasi</span></span>
+<span data-step-label="2"><span class="sm:hidden">2</span><span class="hidden sm:inline">Paket</span></span>
+<span data-step-label="3"><span class="sm:hidden">3</span><span class="hidden sm:inline">Tamu</span></span>
+<span data-step-label="4"><span class="sm:hidden">4</span><span class="hidden sm:inline">Jemput &amp; Tanggal</span></span>
+<span data-step-label="5"><span class="sm:hidden">5</span><span class="hidden sm:inline">Ringkasan</span></span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full gold-gradient transition-all duration-500" id="progressBar" style="width:20%"></div>
+</div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+
+<!-- LEFT: Wizard -->
+<div class="lg:col-span-2 glass-card rounded-2xl p-6 md:p-10 shadow-sm">
+
+<!-- STEP 1: Duration -->
+<section class="step-panel active" id="step-1">
+<h2 class="font-headline-md text-2xl text-on-surface mb-1">Pilih Durasi Trip</h2>
+<p class="text-on-surface-variant text-sm mb-6">Mau one day trip atau nginap beberapa hari?</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4" id="durationOptions"></div>
+</section>
+
+<!-- STEP 2: Package / Destination -->
+<section class="step-panel" id="step-2">
+<h2 class="font-headline-md text-2xl text-on-surface mb-1">Pilih Paket / Destinasi</h2>
+<p class="text-on-surface-variant text-sm mb-6" id="step2Sub">Pilihan destinasi untuk durasi yang kamu pilih.</p>
+<div class="space-y-4" id="packageOptions"></div>
+</section>
+
+<!-- STEP 3: Guests -->
+<section class="step-panel" id="step-3">
+<h2 class="font-headline-md text-2xl text-on-surface mb-1">Jumlah Tamu</h2>
+<p class="text-on-surface-variant text-sm mb-6">Kendaraan otomatis menyesuaikan jumlah tamu.</p>
+<div class="glass-card rounded-2xl p-8 text-center space-y-6">
+<label class="block text-secondary uppercase tracking-widest text-xs">Jumlah Tamu</label>
+<div class="flex items-center justify-center gap-8">
+<button class="w-12 h-12 rounded-xl border border-secondary/30 flex items-center justify-center hover:bg-secondary/10" id="guestMinus" type="button">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="text-4xl font-headline-md text-secondary w-16" id="guestCount">2</span>
+<button class="w-12 h-12 rounded-xl border border-secondary/30 flex items-center justify-center hover:bg-secondary/10" id="guestPlus" type="button">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<p class="text-on-surface-variant text-xs italic">Maks. 6 orang untuk Private Car, 7 orang kena biaya tambahan, 8–13 orang otomatis pakai Hiace.</p>
+</div>
+<div class="mt-6 glass-card rounded-xl p-5 flex items-start gap-4 border-l-4 border-l-secondary" id="vehicleNotice">
+<span class="material-symbols-outlined text-secondary" id="vehicleIcon">directions_car</span>
+<div>
+<p class="text-secondary text-sm font-semibold mb-1">Kendaraan yang dipakai</p>
+<p class="text-on-surface-variant text-sm" id="vehicleText">Private Car — cocok untuk 1–6 orang.</p>
+</div>
+</div>
+</section>
+
+<!-- STEP 4: Pickup, date, name, email -->
+<section class="step-panel" id="step-4">
+<h2 class="font-headline-md text-2xl text-on-surface mb-1">Jemputan, Tanggal &amp; Data Pemesan</h2>
+<p class="text-on-surface-variant text-sm mb-6">Detail terakhir sebelum ringkasan booking.</p>
+<div class="space-y-5">
+<div>
+<label class="block text-xs uppercase tracking-widest text-secondary mb-2">Nama Pemesan</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-5 py-4 text-on-surface" id="customerName" placeholder="Nama lengkap" type="text"/>
+</div>
+<div>
+<label class="block text-xs uppercase tracking-widest text-secondary mb-2">Asal Kota/Negara</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-5 py-4 text-on-surface" id="customerOrigin" placeholder="Contoh: Jakarta, Indonesia / Singapore" type="text"/>
+</div>
+<div>
+<label class="block text-xs uppercase tracking-widest text-secondary mb-2">Email <span class="text-error">*</span> <span class="text-on-surface-variant font-normal normal-case tracking-normal">(wajib untuk konfirmasi)</span></label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-5 py-4 text-on-surface" id="customerEmail" placeholder="nama@email.com" type="email"/>
+<p class="hidden text-error text-xs mt-2 flex items-center gap-1" id="emailError"><span class="material-symbols-outlined text-sm">error</span> Masukkan alamat email yang valid, dipakai untuk kirim konfirmasi booking.</p>
+</div>
+<div>
+<label class="block text-xs uppercase tracking-widest text-secondary mb-2">Lokasi Penjemputan</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-5 py-4 text-on-surface" id="pickupSelect">
+<option value="Stasiun Bandung">Stasiun Bandung (Kebon Kawung / Paskal)</option>
+<option value="Alun-alun Bandung">Alun-alun Bandung</option>
+<option value="BTC Pasteur">BTC Pasteur (Pintu Tol)</option>
+<option value="__custom">Hotel / Lokasi Custom (isi manual)</option>
+</select>
+<input class="w-full mt-3 bg-surface-container-lowest border border-secondary/20 rounded-xl px-5 py-4 text-on-surface italic hidden" id="pickupCustom" placeholder="Tulis nama hotel / alamat lengkap..." type="text"/>
+</div>
+<div>
+<label class="block text-xs uppercase tracking-widest text-secondary mb-2">Tanggal Trip</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-5 py-4 text-on-surface" id="tripDate" type="date"/>
+</div>
+</div>
+</section>
+
+<!-- STEP 5: Summary -->
+<section class="step-panel" id="step-5">
+<h2 class="font-headline-md text-2xl text-on-surface mb-1">Ringkasan Booking</h2>
+<p class="text-on-surface-variant text-sm mb-6">Cek lagi detailnya sebelum lanjut ke WhatsApp. Konfirmasi juga akan dikirim ke email yang kamu isi.</p>
+
+<div class="glass-card rounded-2xl p-6 space-y-3" id="summaryBox"></div>
+
+<div class="mt-6 glass-card rounded-xl p-5 border-l-4 border-l-primary">
+<p class="text-primary text-sm font-semibold mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-base">check_circle</span> Termasuk (Inclusions)</p>
+<p class="text-on-surface-variant text-xs leading-relaxed" id="inclusionsText"></p>
+</div>
+<div class="mt-3 glass-card rounded-xl p-5 border-l-4 border-l-error/60">
+<p class="text-error text-sm font-semibold mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-base">cancel</span> Tidak Termasuk (Exclusions)</p>
+<p class="text-on-surface-variant text-xs leading-relaxed" id="exclusionsText"></p>
+</div>
+
+<div class="mt-3 glass-card rounded-xl p-5 border-l-4 border-l-secondary">
+<p class="text-secondary text-sm font-semibold mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-base">add_circle</span> Add-On (Opsional)</p>
+<div class="space-y-2" id="addonOptions"></div>
+</div>
+
+<div class="mt-8 space-y-3">
+<canvas class="hidden" height="1200" id="summaryCanvas" width="900"></canvas>
+<img alt="Preview ringkasan booking" class="hidden w-full rounded-xl border border-secondary/30" id="summaryImagePreview"/>
+<button class="w-full border border-secondary text-secondary py-4 rounded-xl font-medium hover:bg-secondary/10 transition-all flex items-center justify-center gap-2" id="generateImageBtn" type="button">
+<span class="material-symbols-outlined">image</span> Generate &amp; Download Gambar Ringkasan
+</button>
+<button class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-4 rounded-xl font-medium transition-all flex items-center justify-center gap-2" id="confirmWaBtn" type="button">
+<span class="material-symbols-outlined">chat</span> Konfirmasi via WhatsApp
+</button>
+<p class="text-on-surface-variant text-[11px] text-center italic">Catatan: WhatsApp cuma bisa menerima teks otomatis. Kalau gambar sudah kedownload, silakan lampirkan manual di chat kalau perlu. Konfirmasi tertulis juga akan dikirim ke email yang kamu isi.</p>
+</div>
+</section>
+
+<!-- Nav buttons -->
+<div class="flex justify-between items-center mt-10 pt-6 border-t border-secondary/10">
+<button class="hidden text-on-surface-variant hover:text-secondary flex items-center gap-2" id="backBtn" type="button">
+<span class="material-symbols-outlined">arrow_back</span> Sebelumnya
+</button>
+<div class="flex-1"></div>
+<button class="gold-gradient text-on-secondary px-8 py-3 rounded-xl font-medium flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed" disabled="" id="nextBtn" type="button">
+                Lanjut <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+
+<!-- RIGHT: live summary sidebar -->
+<aside class="lg:sticky lg:top-28">
+<div class="glass-card rounded-2xl p-6 space-y-5 shadow-sm">
+<h3 class="font-headline-md text-lg text-secondary border-b border-secondary/10 pb-4">Ringkasan Sementara</h3>
+<div class="space-y-3 text-sm" id="sidebarSummary">
+<p class="text-on-surface-variant text-xs">Mulai pilih opsi untuk melihat ringkasan di sini.</p>
+</div>
+<div class="pt-4 border-t border-secondary/10 flex justify-between items-end">
+<span class="text-on-surface-variant text-xs uppercase">Estimasi Harga</span>
+<span class="text-secondary font-headline-md text-xl" id="sidebarPrice">IDR 0</span>
+</div>
+</div>
+</aside>
+
+</div>
+</main>
+
+<footer class="border-t border-secondary/10 py-8 px-margin-mobile md:px-margin-desktop text-center text-on-surface-variant text-xs">
+© 2024 Temen Jalan Bandung. Harga final tetap dikonfirmasi oleh tim kami via WhatsApp.
+</footer>
+
+<script>
+/* ============================================================
+ * KONFIGURASI — EDIT DI SINI
+ * ============================================================ */
+const CONFIG = {
+    WHATSAPP_NUMBER: "6285695430379",
+};
+
+/* ============================================================
+ * DATA HARGA — sesuai Master Price Reference yang dikasih.
+ * Silakan sesuaikan angkanya di sini kalau ada perubahan harga.
+ * ============================================================ */
+
+// Harga One Day per destinasi, per tipe kendaraan
+const ONE_DAY_PRICES = {
+    private: { // 1-6 tamu
+        ciwidey: 1250000,
+        lembang: 1200000,
+        pangalengan: 1300000,
+        city_half: 850000,
+        city_full: 1200000,
+    },
+    hiace: { // 8-13 tamu
+        ciwidey: 2000000,
+        lembang: 1900000,
+        pangalengan: 2000000,
+        city_half: 1500000,
+        city_full: 1800000,
+    }
+};
+
+const ONE_DAY_LABELS = {
+    ciwidey: "Ciwidey (Full Day)",
+    lembang: "Lembang (Full Day)",
+    pangalengan: "Pangalengan (Full Day)",
+    city_half: "Bandung City Tour (Half Day)",
+    city_full: "Bandung City Tour (Full Day)",
+};
+
+// Biaya tambahan untuk 7 tamu: Rp150.000 PER HARI trip, sesuai Private Trip Price List
+const EXTRA_PER_DAY_FOR_7_GUESTS = 150000;
+const DURATION_DAYS = { "1day": 1, "2d1n": 2, "3d2n": 3, "4d3n": 4, "5d4n": 5 };
+
+// Add-on opsional (Step 5). Drone = harga flat (sesuai index.html),
+// Osmo Pocket 3 = dihitung per hari trip.
+const ADD_ONS = {
+    droneBasic: { label: "Basic Drone", desc: "1 lokasi, ±30 menit terbang, unlimited photo & video, 1 video cinematic (30–60 detik)", price: 550000, group: "drone" },
+    dronePremium: { label: "Premium Drone", desc: "2–3 lokasi, lebih dari 1 jam total terbang, unlimited photo & video, 1 video cinematic 1 menit", price: 1300000, group: "drone" },
+    osmoPocket3: { label: "DJI Osmo Pocket 3", desc: "Kamera gimbal portable buat dokumentasi trip", pricePerDay: 150000, group: "osmo" },
+};
+
+// Paket multi-hari — sesuai "Private Trip Price List" resmi (1-7 Pax, Private Car).
+// Harga untuk Hiace (8-13 tamu) di paket multi-hari belum ada datanya,
+// jadi confirmedByCS:true -> ditampilkan "harga dikonfirmasi CS".
+const MULTI_DAY_PACKAGES = {
+    "2d1n": [
+        { id: "a", name: "Package A", items: ["Full Day", "Full Day"], privateCarPrice: 2400000, desc: "Full Day (max 12 jam) x2" },
+        { id: "b", name: "Package B", items: ["Full Day", "Half Day"], privateCarPrice: 2050000, desc: "Full Day (max 12 jam) + Half Day (max 6 jam)" },
+    ],
+    "3d2n": [
+        { id: "a", name: "Package A", items: ["Full Day", "Full Day", "Full Day"], privateCarPrice: 3550000, desc: "Full Day (max 12 jam) x3" },
+        { id: "b", name: "Package B", items: ["Full Day", "Full Day", "Half Day"], privateCarPrice: 3200000, desc: "Full Day (max 12 jam) x2 + Half Day (max 6 jam)" },
+    ],
+    "4d3n": [
+        { id: "a", name: "Package A", items: ["Full Day", "Full Day", "Full Day", "Full Day"], privateCarPrice: 4700000, desc: "Full Day (max 12 jam) x4" },
+        { id: "b", name: "Package B", items: ["Full Day", "Full Day", "Full Day", "Half Day"], privateCarPrice: 4350000, desc: "Full Day (max 12 jam) x3 + Half Day (max 6 jam)" },
+    ],
+    "5d4n": [
+        { id: "a", name: "Package A", items: ["Full Day", "Full Day", "Full Day", "Full Day", "Full Day"], privateCarPrice: 5850000, desc: "Full Day (max 12 jam) x5" },
+        { id: "b", name: "Package B", items: ["Full Day", "Full Day", "Full Day", "Full Day", "Half Day"], privateCarPrice: 5500000, desc: "Full Day (max 12 jam) x4 + Half Day (max 6 jam)" },
+    ],
+};
+
+const DURATIONS = [
+    { id: "1day", label: "One Day Trip", icon: "calendar_today" },
+    { id: "2d1n", label: "2D 1N", icon: "hotel" },
+    { id: "3d2n", label: "3D 2N", icon: "star" },
+    { id: "4d3n", label: "4D 3N", icon: "explore" },
+    { id: "5d4n", label: "5D 4N", icon: "history_edu" },
+];
+
+const INCLUSIONS = "Private car, Female Driver Profesional, Fuel selama trip, Toll Fee, Air Mineral, Bantuan Foto & Video, Rekomendasi Tempat Lokal.";
+const EXCLUSIONS = "Tiket masuk tempat wisata, Seluruh biaya parkir (parkir wisata maupun lainnya), Makan & minum selama trip, Akomodasi/hotel/villa, Pengeluaran pribadi (belanja, oleh-oleh, dll), Asuransi perjalanan.";
+
+/* ============================================================
+ * STATE
+ * ============================================================ */
+let state = {
+    step: 1,
+    duration: null,       // '1day' | '2d1n' | ...
+    oneDayChoice: null,   // key dari ONE_DAY_PRICES
+    multiDayChoice: null, // object paket dari MULTI_DAY_PACKAGES
+    guests: 2,
+    vehicle: "private",   // 'private' | 'hiace'
+    customerName: "",
+    customerOrigin: "",
+    customerEmail: "",
+    pickup: "Stasiun Bandung",
+    tripDate: "",
+    addonDrone: null,         // null | 'droneBasic' | 'dronePremium'
+    addonOsmoPocket3: false,  // true/false
+};
+
+/* ============================================================
+ * HELPERS
+ * ============================================================ */
+function formatIDR(n) {
+    return "IDR " + n.toLocaleString("id-ID");
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function updateVehicleFromGuests() {
+    state.vehicle = state.guests >= 8 ? "hiace" : "private";
+}
+
+function calculatePrice() {
+    let base = 0;
+    let priceNote = "";
+    let unresolved = false;
+
+    if (state.duration === "1day") {
+        if (!state.oneDayChoice) return { base: 0, extra: 0, total: 0, note: "" };
+        const table = state.vehicle === "hiace" ? ONE_DAY_PRICES.hiace : ONE_DAY_PRICES.private;
+        base = table[state.oneDayChoice] || 0;
+    } else if (state.multiDayChoice) {
+        if (state.vehicle === "hiace") {
+            unresolved = true;
+            priceNote = "Harga untuk grup 8–13 orang (Hiace) di paket multi-hari akan dikonfirmasi langsung oleh tim kami via WhatsApp.";
+        } else {
+            base = state.multiDayChoice.privateCarPrice;
+            if (state.multiDayChoice.estimated) {
+                priceNote = state.multiDayChoice.note || "Harga estimasi, akan dikonfirmasi tim kami.";
+            }
+        }
+    }
+
+    const days = DURATION_DAYS[state.duration] || 1;
+    const extra = (state.guests === 7 && !unresolved) ? EXTRA_PER_DAY_FOR_7_GUESTS * days : 0;
+
+    let addonTotal = 0;
+    if (state.addonDrone && ADD_ONS[state.addonDrone]) addonTotal += ADD_ONS[state.addonDrone].price;
+    if (state.addonOsmoPocket3) addonTotal += ADD_ONS.osmoPocket3.pricePerDay * days;
+
+    const total = unresolved ? 0 : base + extra + addonTotal;
+
+    return { base, extra, addonTotal, total, note: priceNote, unresolved };
+}
+
+function currentPackageLabel() {
+    if (state.duration === "1day") {
+        return state.oneDayChoice ? ONE_DAY_LABELS[state.oneDayChoice] : "—";
+    }
+    if (state.multiDayChoice) {
+        return state.multiDayChoice.name + ": " + state.multiDayChoice.items.join(" + ");
+    }
+    return "—";
+}
+
+function durationLabel() {
+    const d = DURATIONS.find(d => d.id === state.duration);
+    return d ? d.label : "—";
+}
+
+/* ============================================================
+ * STEP 1 — Duration
+ * ============================================================ */
+const durationOptionsEl = document.getElementById("durationOptions");
+DURATIONS.forEach(d => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "glass-card p-4 rounded-xl text-center flex flex-col items-center gap-2";
+    btn.innerHTML = `<span class="material-symbols-outlined text-2xl text-secondary">${d.icon}</span><span class="text-sm">${d.label}</span>`;
+    btn.addEventListener("click", () => {
+        state.duration = d.id;
+        state.oneDayChoice = null;
+        state.multiDayChoice = null;
+        document.querySelectorAll("#durationOptions button").forEach(b => b.classList.remove("active-option"));
+        btn.classList.add("active-option");
+        renderPackageOptions();
+        validateStep();
+        updateSidebar();
+        // auto lanjut ke step 2 sedikit delay biar terasa responsif
+        setTimeout(() => goToStep(2), 200);
+    });
+    durationOptionsEl.appendChild(btn);
+});
+
+/* ============================================================
+ * STEP 2 — Package / Destination
+ * ============================================================ */
+function renderPackageOptions() {
+    const container = document.getElementById("packageOptions");
+    const sub = document.getElementById("step2Sub");
+    container.innerHTML = "";
+
+    if (state.duration === "1day") {
+        sub.textContent = "Pilih satu destinasi untuk trip satu harimu.";
+        Object.keys(ONE_DAY_LABELS).forEach(key => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "w-full glass-card p-5 rounded-xl flex justify-between items-center text-left";
+            btn.innerHTML = `
+                <span>${ONE_DAY_LABELS[key]}</span>
+                <span class="text-secondary text-sm" data-price-${key}></span>
+            `;
+            btn.addEventListener("click", () => {
+                state.oneDayChoice = key;
+                document.querySelectorAll("#packageOptions button").forEach(b => b.classList.remove("active-option"));
+                btn.classList.add("active-option");
+                validateStep();
+                updateSidebar();
+            });
+            container.appendChild(btn);
+        });
+        refreshOneDayPriceLabels();
+    } else if (state.duration) {
+        sub.textContent = "Pilih salah satu paket berikut (harga untuk Private Car, 1–6 tamu).";
+        const packages = MULTI_DAY_PACKAGES[state.duration] || [];
+        packages.forEach(pkg => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "w-full glass-card p-5 rounded-xl text-left";
+            btn.innerHTML = `
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <p class="font-medium text-on-surface">${pkg.name}</p>
+                        <p class="text-on-surface-variant text-sm">${pkg.items.join(" + ")}</p>
+                        ${pkg.desc ? `<p class="text-on-surface-variant text-xs italic mt-1">${pkg.desc}</p>` : ""}
+                        ${pkg.estimated ? '<p class="text-secondary text-[11px] italic mt-1">Estimasi — final price via CS</p>' : ""}
+                    </div>
+                    <span class="text-secondary text-sm whitespace-nowrap">${formatIDR(pkg.privateCarPrice)}</span>
+                </div>
+            `;
+            btn.addEventListener("click", () => {
+                state.multiDayChoice = pkg;
+                document.querySelectorAll("#packageOptions button").forEach(b => b.classList.remove("active-option"));
+                btn.classList.add("active-option");
+                validateStep();
+                updateSidebar();
+            });
+            container.appendChild(btn);
+        });
+    }
+}
+
+function refreshOneDayPriceLabels() {
+    const table = state.vehicle === "hiace" ? ONE_DAY_PRICES.hiace : ONE_DAY_PRICES.private;
+    Object.keys(ONE_DAY_LABELS).forEach(key => {
+        const el = document.querySelector(`[data-price-${key}]`);
+        if (el) el.textContent = formatIDR(table[key]);
+    });
+}
+
+/* ============================================================
+ * STEP 3 — Guests & vehicle
+ * ============================================================ */
+const guestCountEl = document.getElementById("guestCount");
+document.getElementById("guestMinus").addEventListener("click", () => adjustGuests(-1));
+document.getElementById("guestPlus").addEventListener("click", () => adjustGuests(1));
+
+function adjustGuests(delta) {
+    state.guests = Math.min(13, Math.max(1, state.guests + delta));
+    guestCountEl.textContent = state.guests;
+    updateVehicleFromGuests();
+    renderVehicleNotice();
+    refreshOneDayPriceLabels();
+    validateStep();
+    updateSidebar();
+}
+
+function renderVehicleNotice() {
+    const icon = document.getElementById("vehicleIcon");
+    const text = document.getElementById("vehicleText");
+    if (state.vehicle === "hiace") {
+        icon.textContent = "airport_shuttle";
+        text.textContent = `Hiace Premium — untuk ${state.guests} orang (8–13 tamu).`;
+    } else if (state.guests === 7) {
+        icon.textContent = "directions_car";
+        const days = DURATION_DAYS[state.duration] || 1;
+        text.textContent = `Private Car untuk 7 orang — dikenakan biaya tambahan ${formatIDR(EXTRA_PER_DAY_FOR_7_GUESTS)}/hari (${formatIDR(EXTRA_PER_DAY_FOR_7_GUESTS * days)} untuk ${days} hari trip ini).`;
+    } else {
+        icon.textContent = "directions_car";
+        text.textContent = `Private Car — cocok untuk ${state.guests} orang (1–6 tamu).`;
+    }
+}
+
+/* ============================================================
+ * STEP 4 — Pickup, date, name, origin, email
+ * ============================================================ */
+const pickupSelect = document.getElementById("pickupSelect");
+const pickupCustom = document.getElementById("pickupCustom");
+pickupSelect.addEventListener("change", () => {
+    if (pickupSelect.value === "__custom") {
+        pickupCustom.classList.remove("hidden");
+        state.pickup = pickupCustom.value;
+    } else {
+        pickupCustom.classList.add("hidden");
+        state.pickup = pickupSelect.value;
+    }
+    validateStep();
+    updateSidebar();
+});
+pickupCustom.addEventListener("input", () => {
+    state.pickup = pickupCustom.value;
+    validateStep();
+    updateSidebar();
+});
+document.getElementById("customerName").addEventListener("input", (e) => {
+    state.customerName = e.target.value;
+    validateStep();
+    updateSidebar();
+});
+document.getElementById("customerOrigin").addEventListener("input", (e) => {
+    state.customerOrigin = e.target.value;
+    validateStep();
+    updateSidebar();
+});
+const customerEmailInput = document.getElementById("customerEmail");
+const emailErrorEl = document.getElementById("emailError");
+customerEmailInput.addEventListener("input", (e) => {
+    state.customerEmail = e.target.value.trim();
+    emailErrorEl.classList.add("hidden");
+    customerEmailInput.classList.remove("border-error");
+    validateStep();
+    updateSidebar();
+});
+customerEmailInput.addEventListener("blur", () => {
+    if (state.customerEmail && !isValidEmail(state.customerEmail)) {
+        emailErrorEl.classList.remove("hidden");
+        customerEmailInput.classList.add("border-error");
+    }
+});
+document.getElementById("tripDate").addEventListener("change", (e) => {
+    state.tripDate = e.target.value;
+    validateStep();
+    updateSidebar();
+});
+
+/* ============================================================
+ * STEP 5 — Summary
+ * ============================================================ */
+function renderSummary() {
+    const price = calculatePrice();
+    const box = document.getElementById("summaryBox");
+    box.innerHTML = `
+        <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Nama</span><span>${state.customerName || "—"}</span></div>
+        <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Asal Kota/Negara</span><span>${state.customerOrigin || "—"}</span></div>
+        <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Email</span><span>${state.customerEmail || "—"}</span></div>
+        <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Durasi</span><span>${durationLabel()}</span></div>
+        <div class="flex justify-between text-sm gap-4"><span class="text-on-surface-variant shrink-0">Paket/Destinasi</span><span class="text-right">${currentPackageLabel()}</span></div>
+        <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Jumlah Tamu</span><span>${state.guests} orang</span></div>
+        <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Kendaraan</span><span>${state.vehicle === "hiace" ? "Hiace Premium" : "Private Car"}</span></div>
+        <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Jemputan</span><span>${state.pickup || "—"}</span></div>
+        <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Tanggal</span><span>${state.tripDate || "—"}</span></div>
+        <div class="pt-3 mt-3 border-t border-secondary/10">
+            ${price.unresolved
+                ? `<p class="text-secondary text-sm italic">${price.note}</p>`
+                : `
+                    <div class="flex justify-between text-sm"><span class="text-on-surface-variant">Harga Dasar</span><span>${formatIDR(price.base)}</span></div>
+                    ${price.extra > 0 ? `<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Biaya Tambahan (7 tamu)</span><span>${formatIDR(price.extra)}</span></div>` : ""}
+                    ${state.addonDrone ? `<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Add-On: ${ADD_ONS[state.addonDrone].label}</span><span>${formatIDR(ADD_ONS[state.addonDrone].price)}</span></div>` : ""}
+                    ${state.addonOsmoPocket3 ? `<div class="flex justify-between text-sm"><span class="text-on-surface-variant">Add-On: DJI Osmo Pocket 3 (${DURATION_DAYS[state.duration] || 1} hari)</span><span>${formatIDR(ADD_ONS.osmoPocket3.pricePerDay * (DURATION_DAYS[state.duration] || 1))}</span></div>` : ""}
+                    <div class="flex justify-between items-end mt-2"><span class="text-secondary uppercase text-xs">Estimasi Total</span><span class="text-secondary font-headline-md text-xl">${formatIDR(price.total)}</span></div>
+                    ${price.note ? `<p class="text-secondary text-[11px] italic mt-2">${price.note}</p>` : ""}
+                `
+            }
+        </div>
+    `;
+    document.getElementById("inclusionsText").textContent = INCLUSIONS;
+    document.getElementById("exclusionsText").textContent = EXCLUSIONS;
+    renderAddonOptions();
+}
+
+function renderAddonOptions() {
+    const el = document.getElementById("addonOptions");
+    if (!el) return;
+    const days = DURATION_DAYS[state.duration] || 1;
+    const droneKeys = ["droneBasic", "dronePremium"];
+
+    const droneHtml = droneKeys.map(key => {
+        const a = ADD_ONS[key];
+        const checked = state.addonDrone === key;
+        return `
+            <label class="flex items-start gap-3 p-3 rounded-lg border ${checked ? "border-secondary bg-secondary/5" : "border-outline-variant/30"} cursor-pointer transition-all">
+                <input type="radio" name="addonDrone" class="mt-1 accent-current" data-addon-drone="${key}" ${checked ? "checked" : ""}/>
+                <span class="flex-1">
+                    <span class="flex justify-between items-center">
+                        <span class="text-sm font-medium text-on-surface">${a.label}</span>
+                        <span class="text-secondary text-sm">${formatIDR(a.price)}</span>
+                    </span>
+                    <span class="block text-on-surface-variant text-xs mt-0.5">${a.desc}</span>
+                </span>
+            </label>
+        `;
+    }).join("");
+
+    const osmo = ADD_ONS.osmoPocket3;
+    const osmoChecked = state.addonOsmoPocket3;
+    const osmoHtml = `
+        <label class="flex items-start gap-3 p-3 rounded-lg border ${osmoChecked ? "border-secondary bg-secondary/5" : "border-outline-variant/30"} cursor-pointer transition-all">
+            <input type="checkbox" id="addonOsmoCheckbox" class="mt-1 accent-current" ${osmoChecked ? "checked" : ""}/>
+            <span class="flex-1">
+                <span class="flex justify-between items-center">
+                    <span class="text-sm font-medium text-on-surface">${osmo.label}</span>
+                    <span class="text-secondary text-sm">${formatIDR(osmo.pricePerDay)}/hari (${formatIDR(osmo.pricePerDay * days)} untuk ${days} hari)</span>
+                </span>
+                <span class="block text-on-surface-variant text-xs mt-0.5">${osmo.desc}</span>
+            </span>
+        </label>
+    `;
+
+    el.innerHTML = `
+        <p class="text-on-surface-variant text-xs mb-1">Pilih salah satu (opsional) — Drone:</p>
+        ${droneHtml}
+        <label class="flex items-center gap-2 mt-2">
+            <input type="radio" name="addonDrone" data-addon-drone="" ${!state.addonDrone ? "checked" : ""} class="accent-current"/>
+            <span class="text-xs text-on-surface-variant">Tidak pakai drone</span>
+        </label>
+        <p class="text-on-surface-variant text-xs mt-4 mb-1">Kamera tambahan:</p>
+        ${osmoHtml}
+    `;
+
+    el.querySelectorAll("input[data-addon-drone]").forEach(input => {
+        input.addEventListener("change", (e) => {
+            const val = e.target.getAttribute("data-addon-drone");
+            state.addonDrone = val || null;
+            renderSummary();
+            updateSidebar();
+        });
+    });
+    const osmoCheckbox = document.getElementById("addonOsmoCheckbox");
+    if (osmoCheckbox) {
+        osmoCheckbox.addEventListener("change", (e) => {
+            state.addonOsmoPocket3 = e.target.checked;
+            renderSummary();
+            updateSidebar();
+        });
+    }
+}
+
+function updateSidebar() {
+    const price = calculatePrice();
+    const el = document.getElementById("sidebarSummary");
+    const rows = [];
+    if (state.duration) rows.push(`<div class="flex justify-between"><span class="text-on-surface-variant">Durasi</span><span>${durationLabel()}</span></div>`);
+    if (state.oneDayChoice || state.multiDayChoice) rows.push(`<div class="flex justify-between gap-3"><span class="text-on-surface-variant shrink-0">Paket</span><span class="text-right text-xs">${currentPackageLabel()}</span></div>`);
+    rows.push(`<div class="flex justify-between"><span class="text-on-surface-variant">Tamu</span><span>${state.guests} orang (${state.vehicle === "hiace" ? "Hiace" : "Private Car"})</span></div>`);
+    if (state.pickup) rows.push(`<div class="flex justify-between"><span class="text-on-surface-variant">Jemput</span><span class="text-xs text-right">${state.pickup}</span></div>`);
+    if (state.tripDate) rows.push(`<div class="flex justify-between"><span class="text-on-surface-variant">Tanggal</span><span>${state.tripDate}</span></div>`);
+    if (state.customerOrigin) rows.push(`<div class="flex justify-between gap-3"><span class="text-on-surface-variant shrink-0">Asal</span><span class="text-xs text-right">${state.customerOrigin}</span></div>`);
+    if (state.customerEmail) rows.push(`<div class="flex justify-between gap-3"><span class="text-on-surface-variant shrink-0">Email</span><span class="text-xs text-right">${state.customerEmail}</span></div>`);
+
+    el.innerHTML = rows.length ? rows.join("") : `<p class="text-on-surface-variant text-xs">Mulai pilih opsi untuk melihat ringkasan di sini.</p>`;
+    document.getElementById("sidebarPrice").textContent = price.unresolved ? "Konfirmasi CS" : formatIDR(price.total);
+}
+
+/* ============================================================
+ * GENERATE SUMMARY IMAGE (canvas -> PNG download)
+ * ============================================================ */
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+    const words = text.split(" ");
+    let line = "";
+    let currentY = y;
+    for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + " ";
+        if (ctx.measureText(testLine).width > maxWidth && n > 0) {
+            ctx.fillText(line, x, currentY);
+            line = words[n] + " ";
+            currentY += lineHeight;
+        } else {
+            line = testLine;
+        }
+    }
+    ctx.fillText(line, x, currentY);
+    return currentY + lineHeight;
+}
+
+function generateSummaryImage() {
+    const canvas = document.getElementById("summaryCanvas");
+    const ctx = canvas.getContext("2d");
+    const W = canvas.width, H = canvas.height;
+    const price = calculatePrice();
+
+    // background — soft white with a hint of green
+    const grad = ctx.createLinearGradient(0, 0, 0, H);
+    grad.addColorStop(0, "#ffffff");
+    grad.addColorStop(1, "#eef5f0");
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // green border
+    ctx.strokeStyle = "#2f9d63";
+    ctx.lineWidth = 4;
+    ctx.strokeRect(20, 20, W - 40, H - 40);
+
+    // header
+    ctx.fillStyle = "#1c5c3c";
+    ctx.font = "bold 40px Georgia";
+    ctx.textAlign = "center";
+    ctx.fillText("Temen Jalan Bandung", W / 2, 110);
+    ctx.font = "italic 22px Georgia";
+    ctx.fillStyle = "#16261c";
+    ctx.fillText("Booking Summary", W / 2, 150);
+
+    ctx.strokeStyle = "rgba(47,157,99,0.35)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(70, 180);
+    ctx.lineTo(W - 70, 180);
+    ctx.stroke();
+
+    // rows
+    ctx.textAlign = "left";
+    let y = 240;
+    const rowGap = 60;
+    const labelX = 70;
+    const valueX = 380;
+    const maxValueWidth = W - valueX - 70;
+
+    function row(label, value) {
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "#526056";
+        ctx.fillText(label, labelX, y);
+        ctx.font = "600 20px Arial";
+        ctx.fillStyle = "#16261c";
+        const endY = wrapText(ctx, value || "-", valueX, y, maxValueWidth, 26);
+        y = Math.max(y + rowGap, endY + 24);
+    }
+
+    row("Nama Pemesan", state.customerName);
+    row("Asal Kota/Negara", state.customerOrigin);
+    row("Email", state.customerEmail);
+    row("Durasi", durationLabel());
+    row("Paket / Destinasi", currentPackageLabel());
+    row("Jumlah Tamu", state.guests + " orang");
+    row("Kendaraan", state.vehicle === "hiace" ? "Hiace Premium (8-13 tamu)" : "Private Car (1-6 tamu)");
+    row("Lokasi Jemput", state.pickup);
+    row("Tanggal Trip", state.tripDate || "Belum ditentukan");
+    if (state.addonDrone) row("Add-On", ADD_ONS[state.addonDrone].label + " (" + formatIDR(ADD_ONS[state.addonDrone].price) + ")");
+    if (state.addonOsmoPocket3) {
+        const days = DURATION_DAYS[state.duration] || 1;
+        row("Add-On", "DJI Osmo Pocket 3 (" + formatIDR(ADD_ONS.osmoPocket3.pricePerDay * days) + ")");
+    }
+
+    // price box
+    y += 10;
+    ctx.strokeStyle = "rgba(47,157,99,0.35)";
+    ctx.beginPath();
+    ctx.moveTo(70, y);
+    ctx.lineTo(W - 70, y);
+    ctx.stroke();
+    y += 60;
+
+    ctx.textAlign = "center";
+    ctx.font = "18px Arial";
+    ctx.fillStyle = "#526056";
+    ctx.fillText("ESTIMASI TOTAL HARGA", W / 2, y);
+    y += 55;
+    ctx.font = "bold 44px Georgia";
+    ctx.fillStyle = "#1c5c3c";
+    ctx.fillText(price.unresolved ? "Konfirmasi via CS" : formatIDR(price.total), W / 2, y);
+
+    y += 50;
+    ctx.font = "italic 16px Arial";
+    ctx.fillStyle = "#526056";
+    ctx.fillText("*Harga final dikonfirmasi tim kami via WhatsApp. Belum termasuk pembayaran.", W / 2, y);
+
+    // footer
+    ctx.font = "14px Arial";
+    ctx.fillStyle = "#7c8f82";
+    ctx.fillText("Dibuat pada " + new Date().toLocaleString("id-ID"), W / 2, H - 50);
+
+    // show preview + trigger download
+    const dataUrl = canvas.toDataURL("image/png");
+    const img = document.getElementById("summaryImagePreview");
+    img.src = dataUrl;
+    img.classList.remove("hidden");
+
+    const link = document.createElement("a");
+    link.download = "booking-summary-temen-jalan-bandung.png";
+    link.href = dataUrl;
+    link.click();
+}
+
+document.getElementById("generateImageBtn").addEventListener("click", generateSummaryImage);
+
+document.getElementById("confirmWaBtn").addEventListener("click", () => {
+    const price = calculatePrice();
+    const priceLine = price.unresolved ? price.note : formatIDR(price.total);
+    const days = DURATION_DAYS[state.duration] || 1;
+    const addonLines = [];
+    if (state.addonDrone) addonLines.push(`- Add-On: ${ADD_ONS[state.addonDrone].label} (${formatIDR(ADD_ONS[state.addonDrone].price)})`);
+    if (state.addonOsmoPocket3) addonLines.push(`- Add-On: DJI Osmo Pocket 3 (${formatIDR(ADD_ONS.osmoPocket3.pricePerDay * days)})`);
+    const text = [
+        `Halo, saya ingin booking trip:`,
+        `- Nama: ${state.customerName || "-"}`,
+        `- Asal Kota/Negara: ${state.customerOrigin || "-"}`,
+        `- Email: ${state.customerEmail || "-"}`,
+        `- Durasi: ${durationLabel()}`,
+        `- Paket/Destinasi: ${currentPackageLabel()}`,
+        `- Jumlah Tamu: ${state.guests} orang`,
+        `- Kendaraan: ${state.vehicle === "hiace" ? "Hiace Premium" : "Private Car"}`,
+        `- Jemputan: ${state.pickup || "-"}`,
+        `- Tanggal: ${state.tripDate || "-"}`,
+        ...addonLines,
+        `- Estimasi Harga: ${priceLine}`,
+        ``,
+        `Mohon info ketersediaan ya 🙏`
+    ].join("\n");
+    window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+});
+
+/* ============================================================
+ * STEP NAVIGATION
+ * ============================================================ */
+const totalSteps = 5;
+
+function goToStep(n) {
+    state.step = n;
+    document.querySelectorAll(".step-panel").forEach(p => p.classList.remove("active"));
+    document.getElementById("step-" + n).classList.add("active");
+    document.getElementById("progressBar").style.width = (n / totalSteps * 100) + "%";
+    document.getElementById("backBtn").classList.toggle("hidden", n === 1);
+    document.getElementById("nextBtn").classList.toggle("hidden", n === totalSteps);
+
+    document.querySelectorAll("[data-step-label]").forEach(el => {
+        const stepNum = parseInt(el.dataset.stepLabel, 10);
+        el.classList.toggle("text-secondary", stepNum <= n);
+        el.classList.toggle("font-semibold", stepNum === n);
+    });
+
+    if (n === 3) renderVehicleNotice();
+    if (n === 5) renderSummary();
+    validateStep();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function validateStep() {
+    const nextBtn = document.getElementById("nextBtn");
+    let valid = false;
+    switch (state.step) {
+        case 1: valid = !!state.duration; break;
+        case 2: valid = state.duration === "1day" ? !!state.oneDayChoice : !!state.multiDayChoice; break;
+        case 3: valid = state.guests > 0; break;
+        case 4: valid = !!state.customerName && !!state.customerOrigin && !!state.customerEmail && isValidEmail(state.customerEmail) && !!state.pickup && !!state.tripDate; break;
+        default: valid = true;
+    }
+    nextBtn.disabled = !valid;
+}
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+    if (state.step === 4 && state.customerEmail && !isValidEmail(state.customerEmail)) {
+        emailErrorEl.classList.remove("hidden");
+        customerEmailInput.classList.add("border-error");
+        customerEmailInput.focus();
+        return;
+    }
+    if (state.step < totalSteps) goToStep(state.step + 1);
+});
+document.getElementById("backBtn").addEventListener("click", () => {
+    if (state.step > 1) goToStep(state.step - 1);
+});
+
+// init
+renderVehicleNotice();
+updateSidebar();
+validateStep();
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://temenjalanbandung.my.id/sitemap.xml
